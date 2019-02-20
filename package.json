@@ -10,7 +10,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "line-awesome": "^1.0.2",
+    "persian-date": "^1.0.5",
+    "popper.js": "^1.14.7",
     "vue": "^2.5.2",
+    "vue-jalali-moment": "^1.0.0",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
