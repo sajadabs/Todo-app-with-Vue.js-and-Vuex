@@ -1,0 +1,6 @@
+@import "../scss/_typo.scss";
+
+html ,body , #app{
+    font-family: IRANSans !important;
+    font-weight: normal !important;
+}
