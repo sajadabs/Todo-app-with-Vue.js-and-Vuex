@@ -7,14 +7,18 @@ import './assets/css/app.css'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import SimpleLineIcons from 'vue-simple-line'
 
 Vue.use(BootstrapVue)
 Vue.use(require('vue-jalali-moment'))
 Vue.config.productionTip = false
 
+Vue.component('line-icon', SimpleLineIcons)
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     store,
-    render: h => h(App)
+    components: { App },
+    template: '<App/>'
 })
