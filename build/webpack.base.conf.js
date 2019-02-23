@@ -39,10 +39,26 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader']
             },
-            { test: /\.scss$/, use: [ { loader: "style-loader" }, { loader: "css-loader", }, ] },
             {
-                test: /\.css$/,
-                loader: 'style-loader'
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader", options: {
+                            sourceMap: true
+                        }
+                    },
+                    {loader: 'resolve-url-loader',},
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            sourceMapContents: false
+                        }
+                    }
+                ]
             },
             {
                 test: /\.js$/,
