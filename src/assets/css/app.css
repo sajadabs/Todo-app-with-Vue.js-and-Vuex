@@ -1,6 +1,47 @@
-@import "../scss/_typo.scss";
+@import url(../scss/_typo.scss);
 
 html ,body , #app{
     font-family: IRANSans !important;
     font-weight: normal !important;
+}
+
+.has-shadow{
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.17);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.17);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.17);
+}
+
+.custom-control-label::before{
+    right: -1.5rem;
+    left: inherit !important;
+}
+
+.custom-control-label::after{
+    right: -1.5rem;
+    left: inherit !important;
+}
+
+.custom-control-label{
+    margin-right: 20px;
+}
+
+.btn-warning{
+    color: #fff !important;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #e56d54 !important;
+    background-color: #e56d54 !important;
+}
+
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before, .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(229, 109, 84, 0.32);
+}
+
+.form-control::placeholder , .form-control{
+    text-align: right;
+    direction: rtl;
+}
+.modal-header{
+    direction: rtl;
 }
