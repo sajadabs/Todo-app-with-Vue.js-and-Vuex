@@ -1,23 +1,13 @@
 <template>
   <div id="app" class="container">
-    <Date></Date>
-    <CompletedTodos></CompletedTodos>
-    <GetTodo></GetTodo>
-    <CurrentTodos></CurrentTodos>
+    <Todo></Todo>
   </div>
 </template>
 <script>
-    import Date from './components/Date.vue'
-    import GetTodo from './components/GetTodo.vue'
-    import CurrentTodos from './components/CurrentTodos.vue'
-    import CompletedTodos from './components/CompletedTodos.vue'
+    import Todo from './components/Todo.vue'
     export default {
         components: {
-            Date,
-            GetTodo,
-            CurrentTodos,
-            CompletedTodos
+            Todo,
         }
-
     }
 </script>
