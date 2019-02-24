@@ -1,14 +1,14 @@
 <template>
-    <div id="date" class="container">
-        تاریخ امروز :
-        <span>{{ new Date() | moment("jDD/jMM/jYYYY") }}</span>
-        <line-icon
-                icon="plus"
-                :rotate="90"
-                size="small"
-                color="mediumseagreen"
-                no-svg
-        />
-        <button class="btn btn-danger"></button>
+    <div id="date">
+        <b-alert show variant="light" class="has-shadow text-right mt-3" >
+            تاریخ امروز :
+            <span>{{ new Date() | moment("jYYYY/jMM/jDD") }}</span>
+            <line-icon
+                    icon="calendar"
+                    size="small"
+                    color="#e56d54"
+                    no-svg
+            />
+        </b-alert>
     </div>
 </template>
