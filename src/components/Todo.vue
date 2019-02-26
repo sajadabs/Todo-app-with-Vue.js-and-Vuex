@@ -48,29 +48,29 @@
                 this.single = todo;
             },
             edit(todo) {
-                this.showEdit = true
-                this.setSingle(todo)
+                this.showEdit = true;
+                this.setSingle(todo);
                 this.$store.dispatch('editTodo', todo)
             },
             submitEdit(todo) {
-                this.showEdit = false
-                this.setSingle(null)
-                this.$store.dispatch('submitEditTodo', todo)
+                this.showEdit = false;
+                this.setSingle(null);
+                this.$store.dispatch('submitEditTodo', todo);
                 this.$store.dispatch('clearTodo')
             },
             cancelForm() {
-                this.showEdit = false
-                this.setSingle(null)
+                this.showEdit = false;
+                this.setSingle(null);
                 this.$store.dispatch('clearTodo')
             },
             addTodo() {
-                this.setSingle(null)
-                this.$store.dispatch('createdTime', this.getNowTime())
-                this.$store.dispatch('addTodo')
+                this.setSingle(null);
+                this.$store.dispatch('createdTime', this.getNowTime());
+                this.$store.dispatch('addTodo');
                 this.$store.dispatch('clearTodo')
             },
             complete(todo) {
-                this.$store.dispatch('completeTodo', todo)
+                this.$store.dispatch('completeTodo', todo);
                 this.$store.dispatch('clearTodo')
             },
             remove(todo) {

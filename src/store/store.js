@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const vuexPersist = new VuexPersist({
     key: 'todo-app',
     storage: localStorage
-})
+});
 
 export default new Vuex.Store({
     plugins: [vuexPersist.plugin],
@@ -35,16 +35,16 @@ export default new Vuex.Store({
             todo.title = state.newTodo
         },
         REMOVE_TODO(state, todo) {
-            var todos = state.todos
+            let todos = state.todos;
             todos.splice(todos.indexOf(todo), 1)
         },
         COMPLETE_TODO(state , todo) {
-            state.completed = !state.completed
+            state.completed = !state.completed;
             todo.completed = state.completed
         },
         CLEAR_TODO(state) {
-            state.newTodo = ''
-            state.completed = false
+            state.newTodo = '';
+            state.completed = false;
             state.createTime = ''
         },
         CREATE_TIME(state , createTime) {
