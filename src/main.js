@@ -8,12 +8,13 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import SimpleLineIcons from 'vue-simple-line'
+import moment from 'vue-moment-jalaali'
 
-Vue.use(BootstrapVue)
-Vue.use(require('vue-jalali-moment'))
-Vue.config.productionTip = false
+Vue.use(BootstrapVue);
+Vue.use(moment);
+Vue.config.productionTip = false;
 
-Vue.component('line-icon', SimpleLineIcons)
+Vue.component('line-icon', SimpleLineIcons);
 
 /* eslint-disable no-new */
 new Vue({
@@ -21,4 +22,4 @@ new Vue({
     store,
     components: { App },
     template: '<App/>'
-})
+});
