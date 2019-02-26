@@ -45,3 +45,7 @@ html ,body , #app{
 .modal-header{
     direction: rtl;
 }
+
+.list-group-item.bg-success {
+    background-color: rgba(40, 167, 69, 0.22) !important;
+}
