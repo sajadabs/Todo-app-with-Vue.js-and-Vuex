@@ -1,15 +1,14 @@
 <template>
     <div id="todo-item">
         <ul class="list-group">
-            <li class="list-group-item text-right has-shadow mb-3 rounded p-3">
+            <li class="list-group-item text-right has-shadow mb-3 rounded p-3" :class="{ 'bg-success': todo.completed, '': !todo.completed }">
 
-                <b-form-checkbox class="mb-3">
+                <b-form-checkbox class="mb-3" v-model="todo.completed" @change="complete(todo)">
                     {{todo.title}}
                 </b-form-checkbox>
 
                 <div class="float-left">
-                    <!--<b-button @click="remove(todo)" variant="danger" size="sm">-->
-                    <b-button variant="danger" size="sm">
+                    <b-button @click="remove(todo)" variant="danger" size="sm">
                         حذف
                         <line-icon
                                 style="font-size: 12px;"
@@ -18,8 +17,7 @@
                                 no-svg
                         />
                     </b-button>
-                    <!--<b-button @click="edit(todo)" variant="warning" size="sm">-->
-                    <b-button variant="warning" size="sm">
+                    <b-button @click="edit(todo)" variant="warning" size="sm">
                         ویرایش
                         <line-icon
                                 style="font-size: 12px;"
@@ -31,7 +29,8 @@
                 </div>
                 <div class="float-right">
                     <b-button variant="secondary" size="sm">
-                        ساعت ایجاد 17:20:41
+                        ساعت ایجاد
+                        {{createTime}}
                         <line-icon
                                 style="font-size: 12px;"
                                 icon="clock"
@@ -47,9 +46,23 @@
     </div>
 </template>
 <script>
+    import mixin from '../mixin/mixin.js'
+
     export default {
-        props:[
+        mixins: [mixin],
+        data: function () {
+            return {
+                completedTodo: false
+            }
+        },
+        props: [
             'todo'
         ],
+        computed : {
+            createTime : function(){
+                return this.$moment(this.todo.createdAt*1000).format('HH:mm:ss')
+            }
+        }
+
     }
 </script>
