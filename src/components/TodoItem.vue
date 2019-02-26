@@ -2,13 +2,11 @@
     <div id="todo-item">
         <ul class="list-group">
             <li class="list-group-item text-right has-shadow mb-3 rounded p-3" :class="{ 'bg-success': todo.completed, '': !todo.completed }">
-
-                <b-form-checkbox class="mb-3" v-model="todo.completed" @change="complete(todo)">
+                <b-form-checkbox class="mb-3" v-model="todo.completed" @change="$emit('completeTodo',todo)">
                     {{todo.title}}
                 </b-form-checkbox>
-
                 <div class="float-left">
-                    <b-button @click="remove(todo)" variant="danger" size="sm">
+                    <b-button @click="$emit('remove',todo)" variant="danger" size="sm">
                         حذف
                         <line-icon
                                 style="font-size: 12px;"
@@ -17,7 +15,7 @@
                                 no-svg
                         />
                     </b-button>
-                    <b-button @click="edit(todo)" variant="warning" size="sm">
+                    <b-button @click="$emit('edit',todo)" variant="warning" size="sm">
                         ویرایش
                         <line-icon
                                 style="font-size: 12px;"
@@ -40,16 +38,12 @@
                         />
                     </b-button>
                 </div>
-
             </li>
         </ul>
     </div>
 </template>
 <script>
-    import mixin from '../mixin/mixin.js'
-
     export default {
-        mixins: [mixin],
         data: function () {
             return {
                 completedTodo: false
@@ -58,11 +52,10 @@
         props: [
             'todo'
         ],
-        computed : {
-            createTime : function(){
-                return this.$moment(this.todo.createdAt*1000).format('HH:mm:ss')
+        computed: {
+            createTime: function () {
+                return this.$moment(this.todo.createdAt * 1000).format('HH:mm:ss')
             }
         }
-
     }
 </script>

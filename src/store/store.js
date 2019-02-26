@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const vuexPersist = new VuexPersist({
     key: 'todo-app',
-    storage: window.localStorage
+    storage: localStorage
 })
 
 export default new Vuex.Store({
@@ -14,7 +14,8 @@ export default new Vuex.Store({
     state: {
         todos: [],
         newTodo: '',
-        createTime : null
+        createTime : null,
+        completed : false
     },
     mutations: {
         GET_TODO(state, todo) {
@@ -22,9 +23,8 @@ export default new Vuex.Store({
         },
         ADD_TODO(state) {
             state.todos.push({
-                id: state.todos.length + 1,
                 title: state.newTodo,
-                completed: false,
+                completed: state.completed,
                 createdAt : state.createTime
             })
         },
@@ -38,11 +38,14 @@ export default new Vuex.Store({
             var todos = state.todos
             todos.splice(todos.indexOf(todo), 1)
         },
-        COMPLETE_TODO(todo) {
-            todo.completed = !todo.completed
+        COMPLETE_TODO(state , todo) {
+            state.completed = !state.completed
+            todo.completed = state.completed
         },
         CLEAR_TODO(state) {
             state.newTodo = ''
+            state.completed = false
+            state.createTime = ''
         },
         CREATE_TIME(state , createTime) {
             state.createTime = createTime
